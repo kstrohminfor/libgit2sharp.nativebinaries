@@ -37,9 +37,9 @@ jobs:
             name: linux-musl-arm64
           - os: ubuntu-20.04
             name: linux-arm
-          - os: macos-11
+          - os: macos-12
             name: osx-x64
-          - os: macos-11
+          - os: macos-12
             name: osx-arm64
       fail-fast: false
     steps:
@@ -89,7 +89,7 @@ jobs:
         with:
           path: nuget.package/runtimes/
       - name: Create package
-        run: ./nuget.exe Pack nuget.package/NativeBinaries.nuspec -Version ${{ steps.minver.outputs.version }} -NoPackageAnalysis 
+        run: ./nuget.exe Pack nuget.package/NativeBinaries.nuspec -Version ${{ steps.minver.outputs.version }} -NoPackageAnalysis
       - name: Upload NuGet package
         uses: actions/upload-artifact@v4.3.1
         with:
